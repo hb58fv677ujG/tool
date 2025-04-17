@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Photo Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f0f0f0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="file"] {
+      margin: 20px 0;
+    }
+    select, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #outputImage {
+      max-width: 100%;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+  <!-- Google AdSense (replace with your code) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Photo Converter</h1>
+
+    <!-- Ad #1: Top Ad -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin-bottom: 20px;"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+    <input type="file" id="photoInput" accept="image/*" />
+    <br />
+    <select id="style">
+      <option value="cartoon">Cartoon</option>
+      <option value="sketch">Sketch</option>
+      <option value="painting">Painting</option>
+    </select>
+    <br />
+    <button onclick="convertImage()">Convert</button>
+    <br />
+    <img id="outputImage" src="" alt="AI Converted Photo" />
+
+    <!-- Ad #2: Bottom Ad -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin-top: 30px;"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+         data-ad-slot="9876543210"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <script>
+    function convertImage() {
+      const input = document.getElementById('photoInput').files[0];
+      const style = document.getElementById('style').value;
+
+      if (!input) {
+        alert("Please select a photo first.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = document.getElementById('outputImage');
+        img.src = e.target.result;
+        img.style.display = 'block';
+
+        // Fake AI styling (CSS filter simulation)
+        img.style.filter = style === 'sketch' ? 'grayscale(100%) contrast(150%)' :
+                          style === 'painting' ? 'sepia(80%) saturate(200%)' :
+                          style === 'cartoon' ? 'contrast(200%) brightness(110%)' :
+                          'none';
+      };
+      reader.readAsDataURL(input);
+    }
+  </script>
+</body>
+</html>
